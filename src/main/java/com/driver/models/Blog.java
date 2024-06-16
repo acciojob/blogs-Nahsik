@@ -22,7 +22,7 @@ public class Blog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer blogId;
+    private Integer id;
 
     private String title;
     private String content;
@@ -46,14 +46,14 @@ public class Blog {
         this.user = user;
     }
 
-
-    public Integer getBlogId() {
-        return blogId;
+    public Integer getId(){
+        return this.id;
     }
 
-    public void setBlogId(Integer blogId) {
-        this.blogId = blogId;
+    public void setId(Integer id){
+        this.id  = id;
     }
+
 
     public String getTitle() {
         return title;
@@ -98,7 +98,7 @@ public class Blog {
 
     public String toString() {
         return "Blog{" +
-                "blogId=" + blogId +
+                "blogId=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", userId='" + user + '\'' +
