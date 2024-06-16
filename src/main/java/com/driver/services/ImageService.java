@@ -39,7 +39,7 @@ public class ImageService {
             return 0;
         }
         Image image = imageOpt.get();
-        String[] imageDim = image.getDescription().split("X");
+        String[] imageDim = image.getDimensions().split("X");
         String[] screenDim = screenDimensions.split("X");
        return (Integer.parseInt(screenDim[0])/Integer.parseInt(imageDim[0]))
         *(Integer.parseInt(screenDim[1])/Integer.parseInt(imageDim[1]));
