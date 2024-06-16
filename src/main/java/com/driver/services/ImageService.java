@@ -1,5 +1,7 @@
 package com.driver.services;
 
+import java.util.Optional;
+
 import com.driver.models.*;
 import com.driver.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,11 @@ public class ImageService {
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
-        Image image = imageRepository2.getOne(id);
+        Optional<Image> imageOpt = imageRepository2.findById(id);
+        if(!imageOpt.isPresent()){
+            return 0;
+        }
+        Image image = imageOpt.get();
         String[] imageDim = image.getDescription().split("X");
         String[] screenDim = screenDimensions.split("X");
        return (Integer.parseInt(screenDim[0])/Integer.parseInt(imageDim[0]))
